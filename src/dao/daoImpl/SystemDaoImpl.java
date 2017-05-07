@@ -171,7 +171,6 @@ public class SystemDaoImpl implements SystemDao {
 	}
 
 	public List<Inventory> findInventory(InventorySearchForm inventorySearchForm) {
-		System.out.println("In Dao's findInventory");
 		Session session = sessionFactory.openSession();
 		Transaction tx = session.beginTransaction();
 
@@ -236,11 +235,8 @@ public class SystemDaoImpl implements SystemDao {
 			}
 		}
 
-		System.out.println("Final Query= " + sql + where);
 		Query query = session.createQuery(sql + where);
-		System.out.println("Before Commit");
 		tx.commit();
-		System.out.println("After Commit");
 		return query.list();
 	}
 
